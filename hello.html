@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My First JavaScript Project</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+        }
+        #colorText {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        #changeColorBtn {
+            font-size: 18px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p id="colorText">Hello, JavaScript!</p>
+        <button id="changeColorBtn">Change Text Color</button>
+    </div>
+
+    <script>
+        // JavaScript code
+        const colorText = document.getElementById('colorText');
+        const changeColorBtn = document.getElementById('changeColorBtn');
+
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        changeColorBtn.addEventListener('click', function() {
+            colorText.style.color = getRandomColor();
+        });
+    </script>
+</body>
+</html>
