@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        button {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="mainHeading">Hello, World!</h1>
+    
+    <button onclick="changeHeadingText()">Change Heading Text</button>
+    <button onclick="toggleUnderline()">Toggle Underline</button>
+    <button onclick="changeImageSize()">Change Image Size</button>
+    
+    <br>
+    <img id="demoImage" src="/api/placeholder/300/200" alt="Demo Image">
+
+    <script>
+        // Function to change the heading text
+        function changeHeadingText() {
+            const heading = document.getElementById('mainHeading');
+            heading.textContent = 'Heading Changed!';
+        }
+
+        // Function to toggle underline on the heading
+        function toggleUnderline() {
+            const heading = document.getElementById('mainHeading');
+            if (heading.style.textDecoration === 'underline') {
+                heading.style.textDecoration = 'none';
+            } else {
+                heading.style.textDecoration = 'underline';
+            }
+        }
+
+        // Function to change the size of the image
+        function changeImageSize() {
+            const image = document.getElementById('demoImage');
+            const currentWidth = image.width;
+            if (currentWidth === 300) {
+                image.style.width = '400px';
+            } else {
+                image.style.width = '300px';
+            }
+        }
+    </script>
+</body>
+</html>
