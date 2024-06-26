@@ -1,0 +1,122 @@
+<html>
+<body>
+
+<p id="p2">Hello World!</p>
+
+<script>
+document.getElementById("p2").style.color = "blue";
+</script>
+
+</body>
+</html>
+================================
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1 id="id1">My Heading 1</h1>
+
+<button type="button"
+onclick="document.getElementById('id1').style.color = 'red'">
+Click Me!</button>
+
+</body>
+</html>
+
+==================================
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <style>
+        /* Basic styling for the calculator */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .calculator {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            padding: 20px;
+        }
+        input, button {
+            font-size: 18px;
+            margin: 5px;
+            padding: 10px;
+        }
+        input {
+            width: 200px;
+        }
+        button {
+            width: 50px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <!-- Input field to display the result -->
+        <input type="text" id="result" readonly>
+        <br>
+        <!-- Calculator buttons -->
+        <button onclick="appendToResult('7')">7</button>
+        <button onclick="appendToResult('8')">8</button>
+        <button onclick="appendToResult('9')">9</button>
+        <button onclick="appendToResult('+')">+</button>
+        <br>
+        <button onclick="appendToResult('4')">4</button>
+        <button onclick="appendToResult('5')">5</button>
+        <button onclick="appendToResult('6')">6</button>
+        <button onclick="appendToResult('-')">-</button>
+        <br>
+        <button onclick="appendToResult('1')">1</button>
+        <button onclick="appendToResult('2')">2</button>
+        <button onclick="appendToResult('3')">3</button>
+        <button onclick="appendToResult('*')">*</button>
+        <br>
+        <button onclick="appendToResult('0')">0</button>
+        <button onclick="appendToResult('.')">.</button>
+        <button onclick="calculate()">=</button>
+        <button onclick="appendToResult('/')">/</button>
+        <br>
+        <button onclick="clearResult()">Clear</button>
+    </div>
+
+    <script>
+        // Get the result input field
+        const resultField = document.getElementById('result');
+
+        // Function to append a value to the result
+        function appendToResult(value) {
+            resultField.value += value;
+        }
+
+        // Function to clear the result
+        function clearResult() {
+            resultField.value = '';
+        }
+
+        // Function to calculate the result
+        function calculate() {
+            try {
+                // Use eval() to calculate the result
+                // Note: eval() can be dangerous with user input, this is a simple example
+                resultField.value = eval(resultField.value);
+            } catch (error) {
+                // If there's an error (like invalid input), display "Error"
+                resultField.value = 'Error';
+            }
+        }
+    </script>
+</body>
+</html>
