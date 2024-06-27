@@ -1,0 +1,168 @@
+<!-- 
+This is an interactive HTML page that demonstrates the arithmetic operations from our previous assignment. The following is what the page does:
+
+- Basic Arithmetic: Users can input two numbers and see the results of addition, subtraction, multiplication, division, and modulus operations.
+- Increment and Decrement: Demonstrates both prefix and postfix increment and decrement operators on a given number.
+- Combined Operators: Shows the effect of combined assignment operators (+=, -=, *=, /=, %=) on a number.
+- Problem Solving: Solves the three problems from the assignment (rectangle area, temperature conversion, and remainder calculation).
+- Bonus Challenge: Implements and demonstrates the arithmeticOperations function that performs all basic arithmetic operations on two numbers.
+
+This interactive page allows users to:
+
+- Input their own numbers for calculations
+- See the immediate results of various arithmetic operations
+- Understand how different operators work through practical examples
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arithmetic Operators Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1, h2 {
+            color: #333;
+        }
+        input[type="number"] {
+            width: 60px;
+            padding: 5px;
+            margin-right: 10px;
+        }
+        button {
+            padding: 5px 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #results {
+            margin-top: 20px;
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Arithmetic Operators Demo</h1>
+
+        <h2>1. Basic Arithmetic</h2>
+        <input type="number" id="num1" value="10">
+        <input type="number" id="num2" value="3">
+        <button onclick="performBasicArithmetic()">Calculate</button>
+        <div id="basicResults"></div>
+
+        <h2>2. Increment and Decrement</h2>
+        <input type="number" id="count" value="5">
+        <button onclick="demonstrateIncrementDecrement()">Demonstrate</button>
+        <div id="incrementResults"></div>
+
+        <h2>3. Combined Operators</h2>
+        <input type="number" id="x" value="10">
+        <button onclick="performCombinedOperations()">Perform Operations</button>
+        <div id="combinedResults"></div>
+
+        <h2>4. Problem Solving</h2>
+        <button onclick="solveProblem()">Solve Problems</button>
+        <div id="problemResults"></div>
+
+        <div id="results"></div>
+    </div>
+
+    <script>
+        function performBasicArithmetic() {
+            const a = parseFloat(document.getElementById('num1').value);
+            const b = parseFloat(document.getElementById('num2').value);
+            const results = document.getElementById('basicResults');
+            
+            results.innerHTML = `
+                Addition: ${a + b}<br>
+                Subtraction: ${a - b}<br>
+                Multiplication: ${a * b}<br>
+                Division: ${a / b}<br>
+                Modulus: ${a % b}
+            `;
+        }
+
+        function demonstrateIncrementDecrement() {
+            let count = parseInt(document.getElementById('count').value);
+            const results = document.getElementById('incrementResults');
+            
+            results.innerHTML = `
+                Original value: ${count}<br>
+                After increment (++count): ${++count}<br>
+                After decrement (--count): ${--count}<br>
+                Postfix increment (count++): ${count++} (now ${count})<br>
+                Postfix decrement (count--): ${count--} (now ${count})
+            `;
+        }
+
+        function performCombinedOperations() {
+            let x = parseFloat(document.getElementById('x').value);
+            const results = document.getElementById('combinedResults');
+            const originalX = x;
+            
+            results.innerHTML = `
+                Original x: ${originalX}<br>
+                After x += 5: ${x += 5}<br>
+                After x -= 3: ${x -= 3}<br>
+                After x *= 2: ${x *= 2}<br>
+                After x /= 4: ${x /= 4}<br>
+                After x %= 3: ${x %= 3}
+            `;
+        }
+
+        function solveProblem() {
+            const results = document.getElementById('problemResults');
+            
+            const rectangleArea = 7 * 5;
+            const celsiusTemp = 30;
+            const fahrenheitTemp = (celsiusTemp * 9/5) + 32;
+            const remainder = 17 % 3;
+            
+            results.innerHTML = `
+                1. Area of rectangle (7x5): ${rectangleArea}<br>
+                2. 30°C to Fahrenheit: ${fahrenheitTemp}°F<br>
+                3. Remainder of 17 ÷ 3: ${remainder}
+            `;
+        }
+
+        // Bonus Challenge
+        function arithmeticOperations(num1, num2) {
+            return {
+                sum: num1 + num2,
+                difference: num1 - num2,
+                product: num1 * num2,
+                quotient: num1 / num2,
+                remainder: num1 % num2
+            };
+        }
+
+        // Display bonus challenge results
+        document.getElementById('results').innerHTML += `
+            <h2>Bonus Challenge</h2>
+            <p>Result of arithmeticOperations(10, 5):</p>
+            <pre>${JSON.stringify(arithmeticOperations(10, 5), null, 2)}</pre>
+        `;
+    </script>
+</body>
+</html>
