@@ -1,0 +1,92 @@
+<!--
+Now, let's break down the code and explain how it works:
+
+HTML Structure:
+
+We have a basic HTML structure with a <div> element that has an id of "timer". This is where our countdown will be displayed.
+
+
+CSS Styling:
+
+The CSS is contained within the <style> tag in the <head> section.
+We use flexbox to center the timer on the page both vertically and horizontally.
+The timer text is styled with a large font size and a dark gray color.
+
+
+JavaScript Logic:
+
+The JavaScript is contained within the <script> tag at the end of the <body> section.
+We define two functions: startTimer and an anonymous function that runs when the window loads.
+
+The startTimer function:
+
+Takes two parameters: duration (total seconds) and display (the DOM element to update).
+Uses setInterval to run a function every 1000 milliseconds (1 second).
+Calculates minutes and seconds from the remaining time.
+Updates the display with the formatted time.
+Decrements the timer and resets it when it reaches zero.
+
+The window.onload function:
+
+Sets the initial duration to 5 minutes (300 seconds).
+Gets the reference to the timer display element.
+Calls startTimer to begin the countdown.
+
+
+
+This code creates a simple 5-minute countdown timer that updates every second. When the page loads, the timer starts automatically and counts down from 5:00 to 0:00, then repeats.
+-->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        #timer {
+            font-size: 48px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div id="timer">5:00</div>
+
+    <script>
+        function startTimer(duration, display) {
+            let timer = duration, minutes, seconds;
+            setInterval(function () {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = minutes + ":" + seconds;
+
+                if (--timer < 0) {
+                    timer = duration;
+                }
+            }, 1000);
+        }
+
+        window.onload = function () {
+            let fiveMinutes = 60 * 5,
+                display = document.querySelector('#timer');
+            startTimer(fiveMinutes, display);
+        };
+    </script>
+</body>
+</html>
