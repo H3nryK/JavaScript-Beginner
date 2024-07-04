@@ -90,3 +90,150 @@ This code creates a simple 5-minute countdown timer that updates every second. W
     </script>
 </body>
 </html>
+
+<!--
+Async/Await:
+
+async and await are features that make working with asynchronous code easier and more readable.
+An async function always returns a Promise.
+await can only be used inside an async function. It pauses the execution of the function until the Promise is resolved.
+
+Promises:
+
+Promises represent the eventual completion or failure of an asynchronous operation.
+They have three states: pending, fulfilled, or rejected.
+Promises allow you to attach callbacks for success (.then()) or failure (.catch()) scenarios.
+
+Event Listening:
+
+Event listening allows you to respond to user actions or system events in your web application.
+You can attach event listeners to DOM elements to execute code when specific events occur.
+
+These concepts work together to create responsive, non-blocking web applications:
+
+Promises provide a way to handle asynchronous operations.
+Async/await is syntactic sugar that makes working with Promises more readable.
+Event listeners allow your code to respond to user interactions or system events.
+
+-->
+
+<!--
+Async/Await Usage:
+
+In the startTimer() function, we use a while loop with await sleep(1000) to create a non-blocking delay of 1 second between each tick of the timer.
+This approach allows other JavaScript to run without being blocked by the timer.
+
+Event Listeners:
+
+Start Button: Starts the timer if it's not already running.
+Pause Button: Stops the timer by setting isRunning to false.
+Reset Button: Stops the timer and resets it to the initial time.
+
+Key Differences and Advantages:
+
+Asynchronous Operation: The async/await pattern allows the timer to run without blocking other JavaScript execution.
+Improved Control: Users can start, pause, and reset the timer.
+More Flexible: It's easier to add features like changing the duration or handling timer completion.
+
+This example demonstrates several important JavaScript concepts:
+
+Async/Await for handling asynchronous operations
+Promises (used in the sleep function)
+Event listeners for user interaction
+State management (using the isRunning variable)
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async Countdown Timer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        #timer {
+            font-size: 48px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        #controls {
+            display: flex;
+            gap: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="timer">5:00</div>
+    <div id="controls">
+        <button id="startBtn">Start</button>
+        <button id="pauseBtn">Pause</button>
+        <button id="resetBtn">Reset</button>
+    </div>
+
+    <script>
+        const timer = document.getElementById('timer');
+        const startBtn = document.getElementById('startBtn');
+        const pauseBtn = document.getElementById('pauseBtn');
+        const resetBtn = document.getElementById('resetBtn');
+
+        let countdown;
+        let remainingTime = 5 * 60; // 5 minutes in seconds
+        let isRunning = false;
+
+        function updateDisplay(seconds) {
+            const minutes = Math.floor(seconds / 60);
+            const remainingSeconds = seconds % 60;
+            timer.textContent = `${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
+        }
+
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        async function startTimer() {
+            while (remainingTime > 0 && isRunning) {
+                updateDisplay(remainingTime);
+                await sleep(1000);
+                remainingTime--;
+            }
+            if (remainingTime === 0) {
+                updateDisplay(0);
+                alert('Countdown finished!');
+            }
+        }
+
+        startBtn.addEventListener('click', () => {
+            if (!isRunning) {
+                isRunning = true;
+                startTimer();
+            }
+        });
+
+        pauseBtn.addEventListener('click', () => {
+            isRunning = false;
+        });
+
+        resetBtn.addEventListener('click', () => {
+            isRunning = false;
+            remainingTime = 5 * 60;
+            updateDisplay(remainingTime);
+        });
+
+        updateDisplay(remainingTime);
+    </script>
+</body>
+</html>
