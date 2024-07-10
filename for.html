@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum of Even Numbers</title>
+    <style>
+        /* Basic CSS for styling the page */
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        input, button {
+            font-size: 16px;
+            padding: 5px 10px;
+        }
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- Main heading -->
+    <h1>Sum of Even Numbers</h1>
+    
+    <!-- Instructions for the user -->
+    <p>Enter a number to calculate the sum of even numbers from 1 to that number:</p>
+    
+    <!-- Input field for the user to enter a number -->
+    <input type="number" id="inputNumber" min="1">
+    
+    <!-- Button to trigger the calculation -->
+    <button onclick="calculateSum()">Calculate</button>
+    
+    <!-- Div to display the result -->
+    <div id="result"></div>
+
+    <script>
+        // Function to calculate the sum of even numbers from 1 to n
+        function sumOfEvenNumbers(n) {
+            let sum = 0;  // Initialize sum to 0
+            
+            // Loop through numbers from 1 to n
+            for (let i = 1; i <= n; i++) {
+                // Check if the current number is even
+                if (i % 2 === 0) {
+                    sum += i;  // Add the even number to the sum
+                }
+            }
+            
+            return sum;  // Return the total sum
+        }
+
+        // Function to handle button click and perform calculation
+        function calculateSum() {
+            // Get references to HTML elements
+            const input = document.getElementById('inputNumber');
+            const result = document.getElementById('result');
+            
+            // Parse the input value to an integer
+            const n = parseInt(input.value);
+            
+            // Validate the input
+            if (isNaN(n) || n < 1) {
+                // Display an error message if input is invalid
+                result.textContent = 'Please enter a valid positive number.';
+            } else {
+                // Calculate the sum and display the result
+                const sum = sumOfEvenNumbers(n);
+                result.textContent = `The sum of even numbers from 1 to ${n} is: ${sum}`;
+            }
+        }
+    </script>
+</body>
+</html>
+
+<!--
+
+`isNaN()` is a built-in JavaScript function that stands for "is Not a Number". It's used to determine whether a value is NaN (Not-a-Number) or not
+
+-->
