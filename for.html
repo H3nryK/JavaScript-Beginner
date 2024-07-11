@@ -19,3 +19,51 @@
   </script>
 </body>
 </html>
+
+<!--exercise2 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Loop Exercise 1</title>
+</head>
+<body>
+  <h1>Numbers List</h1>
+  <ol id="numbers-list"></ol>
+
+  <script>
+    const numbersList = document.getElementById('numbers-list');
+    for (let i = 1; i <= 10; i++) {
+      const listItem = document.createElement('li');
+      listItem.textContent = i;
+      numbersList.appendChild(listItem);
+    }
+  </script>
+</body>
+</html>
+
+<!-- exercise3 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Loop Exercise 4</title>
+</head>
+<body>
+  <h1>Countdown Timer</h1>
+  <p id="countdown"></p>
+
+  <script>
+    const countdown = document.getElementById('countdown');
+    for (let i = 10; i >= 0; i--) {
+      setTimeout(() => {
+        countdown.textContent = i;
+      }, (10 - i) * 1000);
+    }
+  </script>
+</body>
+</html>
