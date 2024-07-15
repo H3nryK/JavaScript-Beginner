@@ -1,0 +1,130 @@
+<!--
+An array is a special variable, which can hold more than one value.
+
+example:
+
+const cars = ["Saab", "Volvo", "BMW"];
+-->
+
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Arrays</h1>
+
+<p id="demo"></p>
+
+<script>
+const cars = ["Saab", "Volvo", "BMW"];
+document.getElementById("demo").innerHTML = cars;
+</script>
+
+</body>
+</html>
+
+<!--
+
+Using the JavaScript Keyword new
+The following example also creates an Array, and assigns values to it:
+
+-->
+
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Arrays</h1>
+
+<p id="demo"></p>
+
+<script>
+const cars = new Array("Saab", "Volvo", "BMW");
+document.getElementById("demo").innerHTML = cars;
+</script>
+
+</body>
+</html>
+
+
+<!--
+Accessing Array Elements
+You access an array element by referring to the index number:
+
+const cars = ["Saab", "Volvo", "BMW"];
+let car = cars[0];
+
+we will get "saab" as the result.
+-->
+
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Arrays</h1>
+<h2>Bracket Indexing</h2>
+
+<p>JavaScript array elements are accessed using numeric indexes (starting from 0).</p>
+
+<p id="demo"></p>
+
+<script>
+const cars = ["Saab", "Volvo", "BMW"];
+document.getElementById("demo").innerHTML = cars[0];
+</script>
+
+</body>
+</html>
+
+
+<!--
+Changing an Array Element
+This statement changes the value of the first element in cars:
+
+cars[0] = "Opel";
+
+it will change "saab" to "opel"
+-->
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Arrays</h1>
+<h2>Bracket Indexing</h2>
+
+<p>JavaScript array elements are accessed using numeric indexes (starting from 0).</p>
+
+<p id="demo"></p>
+
+<script>
+const cars = ["Saab", "Volvo", "BMW"];
+cars[0] = "Opel";
+document.getElementById("demo").innerHTML = cars;
+</script>
+
+</body>
+</html>
+
+<!--
+Converting an Array to a String
+The JavaScript method toString() converts an array to a string of (comma separated) array values.
+
+Example:
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo").innerHTML = fruits.toString();
+
+Result: Banana,Orange,Apple,Mango
+-->
+
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Arrays</h1> 
+<h2>The toString() Method</h2>
+
+<p>The toString() method returns an array as a comma separated string:</p>
+
+<p id="demo"></p>
+
+<script>
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo").innerHTML = fruits.toString();
+</script>
+
+</body>
+</html>
