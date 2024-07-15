@@ -128,3 +128,36 @@ document.getElementById("demo").innerHTML = fruits.toString();
 
 </body>
 </html>
+
+<!--
+Arrays are Objects
+Arrays are a special type of objects. The typeof operator in JavaScript returns "object" for arrays.
+
+But, JavaScript arrays are best described as arrays.
+
+Arrays use numbers to access its "elements". In this example, person[0] returns John:
+
+Array:
+const person = ["John", "Doe", 46];
+Objects use names to access its "members". In this example, person.firstName returns John:
+
+Object:
+const person = {firstName:"John", lastName:"Doe", age:46};
+-->
+
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Objects</h1>
+
+<p>JavaScript uses names to access object properties.</p>
+<p id="demo"></p>
+
+<script>
+const person = {firstName:"John", lastName:"Doe", age:46};
+document.getElementById("demo").innerHTML = person.firstName;
+</script>
+
+</body>
+</html>
+
