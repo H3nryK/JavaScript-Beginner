@@ -1,0 +1,187 @@
+<!--
+
+A JavaScript Set is a collection of unique values.
+
+Each value can only occur once in a Set.
+
+The values can be of any type, primitive values or objects.
+
+How to Create a Set
+You can create a JavaScript Set by:
+
+Passing an array to new Set()
+Create an empty set and use add() to add values
+The new Set() Method
+Pass an array to the new Set() constructor:
+
+example:
+// Create a Set
+const letters = new Set(["a","b","c"])
+
+--->
+
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Sets</h1>
+<h2>The add() Method</h2>
+
+<p>The add() method adds values to a set:</p>
+
+<p id="demo"></p>
+
+<script>
+// Create a Set
+const letters = new Set();
+
+// Add Values to the Set
+letters.add("a");
+letters.add("b");
+letters.add("c");
+
+// Display the Size
+document.getElementById("demo").innerHTML = "The set has " + letters.size + " values.";
+</script>
+
+</body>
+</html>
+
+<!--
+Listing the Elements
+You can list all Set elements (values) with a for..of loop:
+-->
+
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Sets</h1>
+<p>Ypu can iterate set values with for..of:</p>
+
+<p id="demo"></p>
+
+<script>
+// Create a Set
+const letters = new Set(["a","b","c"]);
+
+// List all Elements
+let text = "";
+for (const x of letters) {
+  text += x + "<br>";
+}
+
+document.getElementById("demo").innerHTML = text;
+</script>
+</body>
+</html>
+
+
+<!--
+The has() Method
+The has() method returns true if a specified value exists in a set.
+-->
+
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Sets</h1>
+<h2>The has() Method</h2>
+
+<p>The has() method returns true if a set contains a spesific value:</p>
+
+<p id="demo"></p>
+
+<script>
+// Create a new Set
+const letters = new Set(["a","b","c"]);
+
+// Does the Set contain "d"?
+answer = letters.has("d");
+document.getElementById("demo").innerHTML = "The answer is " + answer;
+</script>
+
+</body>
+</html>
+
+<!--
+The forEach() Method
+The forEach() method invokes a function for each Set element:
+-->
+
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Sets</h1>
+<h2>The forEach() Method</h2>
+
+<p>forEach() calls a function for each element in a Set:</p>
+
+<p id="demo"></p>
+
+<script>
+// Create a Set
+const letters = new Set(["a","b","c"]);
+
+// List all Elements
+let text = "";
+letters.forEach (function(value) {
+  text += value + "<br>";
+})
+
+document.getElementById("demo").innerHTML = text;
+</script>
+
+</body>
+</html>
+
+
+<!--
+The values() Method
+The values() method returns an Iterator object with the values in a Set:
+-->
+
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Sets</h1>
+<h2>The values() Method</h2>
+
+<p>The values() method returns an Iterator object with all the values in a Set.</p>
+
+<p id="demo"></p>
+
+<script>
+// Create a Set
+const letters = new Set(["a","b","c"]);
+
+// Create an Iterator
+const myIterator = letters.values();
+
+// List all Elements
+let text = "";
+for (const x of myIterator) {
+  text += x + "<br>";
+}
+
+document.getElementById("demo").innerHTML = text;
+</script>
+</body>
+</html>
+
+
+<!--
+
+The keys() Method
+The keys() method returns an Iterator object with the values in a Set:
+
+Note
+A Set has no keys, so keys() returns the same as values().
+This makes Sets compatible with Maps.
+
+const letters = new Set(["a","b","c"]);
+
+// List all Elements
+let text = "";
+for (const x of letters.keys()) {
+  text += x;
+}
+-->
