@@ -1,0 +1,99 @@
+<!--
+
+A Map holds key-value pairs where the keys can be any datatype.
+
+A Map remembers the original insertion order of the keys.
+
+How to Create a Map
+You can create a JavaScript Map by:
+
+Passing an Array to new Map()
+Create a Map and use Map.set()
+
+The new Map() Method
+You can create a Map by passing an Array to the new Map() constructor:
+
+// Create a Map
+const fruits = new Map([
+  ["apples", 500],
+  ["bananas", 300],
+  ["oranges", 200]
+]);
+
+The set() Method
+You can add elements to a Map with the set() method:
+
+// Create a Map
+const fruits = new Map();
+
+// Set Map Values
+fruits.set("apples", 500);
+fruits.set("bananas", 300);
+fruits.set("oranges", 200);
+
+The get() Method
+The get() method gets the value of a key in a Map:
+
+fruits.get("apples");    // Returns 500
+
+JavaScript Objects vs Maps
+Differences between JavaScript Objects and Maps:
+Object	                              Map
+Not directly iterable	                Directly iterable
+Do not have a size property	          Have a size property
+Keys must be Strings (or Symbols)	    Keys can be any datatype
+Keys are not well ordered	            Keys are ordered by insertion
+Have default keys	                     Do not have default keys
+
+-->
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Maps</h1>
+<h2>The new Map Method()</h2>
+
+<p>Creating a map from an array:</p>
+
+<p id="demo"></p>
+
+<script>
+// Create a Map
+const fruits = new Map([
+  ["apples", 500],
+  ["bananas", 300],
+  ["oranges", 200]
+]);
+
+let numb = fruits.get("apples");
+document.getElementById("demo").innerHTML = "There are " + numb + " apples.";
+</script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Maps</h1>
+<h2>The set() Method</h2>
+
+<p id="demo"></p>
+
+<script>
+// Create a Map
+const fruits = new Map();
+
+// Set Map Values
+fruits.set("apples", 500);
+fruits.set("bananas", 300);
+fruits.set("oranges", 200);
+
+let numb = fruits.get("apples");
+document.getElementById("demo").innerHTML = "There are " + numb + " apples.";
+
+</script>
+
+</body>
+</html>
+
+
