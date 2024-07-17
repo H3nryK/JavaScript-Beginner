@@ -1,0 +1,117 @@
+<!--
+
+The typeof Operator
+The typeof operator returns the data type of a JavaScript variable.
+
+Primitive Data Types
+In JavaScript, a primitive value is a single value with no properties or methods.
+
+JavaScript has 7 primitive data types:
+
+string
+number
+boolean
+bigint
+symbol
+null
+undefined
+The typeof operator returns the type of a variable or an expression.
+
+Examples
+typeof "John"         // Returns string
+typeof ("John"+"Doe") // Returns string
+typeof 3.14           // Returns number
+typeof 33             // Returns number
+typeof (33 + 66)      // Returns number
+typeof true           // Returns boolean
+typeof false          // Returns boolean
+typeof 1234n          // Returns bigint
+typeof Symbol()       // Returns symbol
+typeof x              // Returns undefined
+
+-->
+
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Operators</h1>
+<h2>The typeof Operator</h2>
+
+<p>The typeof operator returns the type of a variable or an expression:</p>
+
+<p id="demo"></p>
+
+<script>
+document.getElementById("demo").innerHTML = 
+"'John' is " + typeof "John" + "<br><br>" +
+"('John' + 'Doe') is " + typeof ("John" + "Doe") + "<br><br>" +
+"3.14 is " + typeof 3.14 + "<br><br>" +
+"33 is " + typeof (33 + 66) + "<br><br>" +
+"(33 + 66) is " + typeof 33 + "<br><br>" +
+"NaN is " + typeof NaN + "<br><br>" +
+"true is " + typeof true + "<br><br>" +
+"false is " + typeof false + "<br><br>" +
+"1234n is " + typeof 1234n + "<br><br>" +
+"Symbol() is " + typeof Symbol() + "<br><br>" +
+"x is " + typeof x;
+</script>
+
+</body>
+</html>
+
+<!--
+Complex Data Types
+A complex data type can store multiple values and/or different data types together.
+
+JavaScript has one complex data type:
+
+object
+All other complex types like arrays, functions, sets, and maps are just different types of objects.
+
+The typeof operator returns only two types:
+
+object
+function
+Example
+typeof {name:'John'}   // Returns object
+typeof [1,2,3,4]       // Returns object
+typeof new Map()       // Returns object
+typeof new Set()       // Returns object
+
+typeof function (){}   // Returns function
+
+-->
+
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Operators</h1>
+<h2>The typeof Operator</h2>
+<p>The typeof operator returns object for both objects, arrays, maps, sets, and null.</p>
+<p>The typeof operator does not return object for functions.</p>
+
+<p id="demo"></p>
+
+<script>
+document.getElementById("demo").innerHTML = 
+typeof {name:'John'} + "<br>" +
+typeof [1,2,3,4] + "<br>" +
+typeof new Map() + "<br>" +
+typeof new Set() + "<br>" +
+typeof null + "<br>" +
+typeof function myFunc(){};
+</script>
+
+</body>
+</html>
+
+<!--
+Note:
+The typeof operator returns object for all types of objects:
+
+objects
+arrays
+sets
+maps
+You cannot use typeof to determine if a JavaScript object is an array or a date.
+-->
